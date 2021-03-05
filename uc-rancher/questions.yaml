@@ -1,0 +1,100 @@
+categories:
+- HPC
+- UberCloud
+questions:
+- variable: jobid 
+  default: ""
+  description: "Must be a unique ID identifying the HPC cluster"
+  type: string
+  required: true
+  label: "HPC Cluster Identifier"
+- variable: ucimage
+  default: ""
+  description: "UberCloud's uc Image"
+  type: string
+  required: true
+  label: "uc Image"
+- variable: email 
+  default: ""
+  description: "Email"
+  type: string
+  required: true
+  label: "Email"
+- variable: applicationImage
+  default: ""
+  description: ""
+  type: string
+  required: true
+  label: "UberCloud HPC Application Image"
+- variable: rancher.import
+  default: ""
+  description: "Rancher connection string"
+  type: string
+  required: true
+  label: "Rancher connection string"
+- variable: licenseserver 
+  default: ""
+  description: "License Server"
+  type: string
+  required: true
+  label: "License Server"
+- variable: aks.tenant
+  default: ""
+  description: "AKS tenant"
+  type: string
+  required: true
+  label: "AKS Tenant"
+- variable: aks.client
+  default: ""
+  description: "License Server"
+  type: string
+  required: true
+  label: "AKS Client"
+- variable: aks.secret 
+  default: ""
+  description: ""
+  type: string
+  required: true
+  label: "AKS Secret"
+- variable: aks.subscription 
+  default: ""
+  description: ""
+  type: string
+  required: true
+  label: "AKS Subscription"
+- variable: aks.storagekey 
+  default: ""
+  description: ""
+  type: string
+  required: true
+  label: "AKS Storage Key"
+- variable: aks.region
+  default: "eastus"
+  description: "AKS Region"
+  type: string
+  required: true
+  label: "AKS Region"
+- variable: aks.outboundip
+  default: ""
+  description: "AKS"
+  type: string
+  required: true
+  label: "AKS Outbound IP"
+- variable: registry.address
+  default: ""
+  description: "Registry Address"
+  type: string
+  required: true
+  label: "Registry Address"
+- variable: registry.username
+  default: ""
+  description: "Registry Username"
+  type: string
+  required: true
+  label: "Registry Username"
+- variable: registry.password
+  default: ""
+  description: "Registry Password"
+  type: string
+  required: true
+  label: "Registry Password"
