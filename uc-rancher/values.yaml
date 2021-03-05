@@ -1,0 +1,44 @@
+# Default values for uc-rancher.
+
+# This is the unique ID of the cluster.
+jobid: myfirstjob
+
+# Location of UberCloud's uc image
+ucimage: ""
+
+email: ""
+
+# Name of UberCloud's app image under library_staging
+applicationimage: ""
+
+# Rancher configuration
+rancher:
+  # String which consists of <Rancher URL>:<access key>:<secret key>.
+  # This is required to let the UberCloud HPC Application being
+  # registered at Rancher.
+  import: ""
+
+storage:
+  # If set to TRUE all nodes span a temporary BeeGFS cluster.
+  # Set to "" if no BeeOND is used.
+  beeond: "TRUE"
+
+# Needs to point to the license server and port used for 
+# Ansys / DCV etc.
+licenseserver: ""
+
+# Azure credentials and specific settings.
+aks:
+  tenant: ""
+  client: ""
+  secret: ""
+  subscription: ""
+  storagekey: ""
+  region: ""
+  outboundip: ""
+
+# UberCloud registry credentials.
+registry:
+  address: ""
+  username: ""
+  password: ""

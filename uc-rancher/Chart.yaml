@@ -1,0 +1,11 @@
+apiVersion: v2
+name: uc-rancher
+description: Example chart of installing an UberCloud cluster using Rancher
+
+type: application
+
+# chart version
+version: 0.1.0
+
+# uc version
+appVersion: "1.0.0"

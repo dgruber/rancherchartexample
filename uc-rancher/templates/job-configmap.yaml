@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jobconfig-env
+  namespace: default
+data:
+  UC_WELCOMEEMAIL: "{{ .Values.email }}"
+  UC_RANCHERIMPORT: "{{ .Values.rancher.import }}"
+  UC_BEEOND: "{{ .Values.storage.beeond }}"
+  UC_KUBERNETES_DEBUG_SCRIPT: "./init.sh"
+  UC_OVERRIDE_ENV_NOVNC_PORT: "8443"
+  UC_OVERRIDE_ENV_USE_TLS: "yes"
+  UC_KUBERNETESVERSION: "1.20.2"
+  UC_UBERCLOUDGPUDRIVER: "true"
+  UC_OVERRIDE_ENV_LICENSE_SERVER: "{{ .Values.licenseserver }}"
+  UC_NFSSHARE: "{{ .Values.nfsshare }}"
+  UC_WORKLOADMANAGER: "none"
+  UC_PATH: "library_staging"
+  UC_IMAGE: "{{ .Values.applicationimage }}"
+  UC_CLUSTERNAMEPREFIX: "dg"
+  UC_MACHINE: "Standard_NC6s_v2"
+  UC_GPUTYPE: "p100"
+  UC_GPUS: "1"
+  UC_WORKERNODES: "2"
+  UC_WORKERMACHINE: "Standard_F32s_v2"
+  UC_USERCONTROLLER: "true"
+  UC_USERCONTROLLERCONFIG: "machines:Standard_F32s_v2:gpus:none:gpucount:0:autoscaler:off"
+  UC_DELETETIME: "240m"
+

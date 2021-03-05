@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "uc-rancher.fullname" . }}
+  labels:
+    {{- include "uc-rancher.labels" . | nindent 4 }}
+spec:
+  template:
+    spec:
+      containers:
+        - name: uc
+          image: "{{ .Values.ucimage }}"
+          imagePullPolicy: Always
+          command: ["uc", "create", "{{ .Values.jobid }}", "--wait"]
+          envFrom:
+          - configMapRef:
+              name: jobconfig-env
+          - secretRef:
+              name: aks-secret
+          - secretRef:
+              name: registry-secret
+      restartPolicy: Never
+  backoffLimit: 0
