@@ -7,6 +7,8 @@ metadata:
 spec:
   template:
     spec:
+      imagePullSecrets:
+        - name: ucregistry
       containers:
         - name: uc
           image: "{{ .Values.ucimage }}"
