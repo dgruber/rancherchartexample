@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: init-script-configmap
+data:
+  init.sh: |
+{{ .Files.Get "init.sh" | indent 4 }}

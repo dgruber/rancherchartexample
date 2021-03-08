@@ -19,14 +19,11 @@ rancher:
   # registered at Rancher.
   import: ""
 
-storage:
-  # If set to TRUE all nodes span a temporary BeeGFS cluster.
-  # Set to "" if no BeeOND is used.
-  beeond: "TRUE"
-
 # Needs to point to the license server and port used for 
 # Ansys / DCV etc.
 licenseserver: ""
+
+nfsshare: ""
 
 # Azure credentials and specific settings.
 aks:

@@ -7,13 +7,22 @@ metadata:
 spec:
   template:
     spec:
+      volumes:
+      - name: init-script-volume
+        configMap:
+          name: init-script-configmap
+          defaultMode: 0700
       imagePullSecrets:
         - name: ucregistry
       containers:
         - name: uc
+          volumeMounts:
+          - name: init-script-volume
+            mountPath: /init.sh
+            subPath: init.sh
           image: "{{ .Values.ucimage }}"
           imagePullPolicy: Always
-          command: ["uc", "create", "{{ .Values.jobid }}", "--wait"]
+          command: ["uc", "--backend" ,"AKS", "create", "{{ .Values.jobid }}","--wait"]
           envFrom:
           - configMapRef:
               name: jobconfig-env
@@ -21,5 +30,9 @@ spec:
               name: aks-secret
           - secretRef:
               name: registry-secret
+          volumeMounts:
+          - name: init-script-volume
+            mountPath: /init.sh
+            subPath: init.sh
       restartPolicy: Never
   backoffLimit: 0

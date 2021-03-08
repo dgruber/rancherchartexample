@@ -6,8 +6,7 @@ metadata:
 data:
   UC_WELCOMEEMAIL: "{{ .Values.email }}"
   UC_RANCHERIMPORT: "{{ .Values.rancher.import }}"
-  UC_BEEOND: "{{ .Values.storage.beeond }}"
-  UC_KUBERNETES_DEBUG_SCRIPT: "./init.sh"
+  UC_KUBERNETES_DEBUG_SCRIPT: "/init.sh"
   UC_OVERRIDE_ENV_NOVNC_PORT: "8443"
   UC_OVERRIDE_ENV_USE_TLS: "yes"
   UC_KUBERNETESVERSION: "1.20.2"
@@ -26,4 +25,4 @@ data:
   UC_USERCONTROLLER: "true"
   UC_USERCONTROLLERCONFIG: "machines:Standard_F32s_v2:gpus:none:gpucount:0:autoscaler:off"
   UC_DELETETIME: "240m"
-
+  

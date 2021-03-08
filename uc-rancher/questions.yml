@@ -44,6 +44,12 @@ questions:
   type: string
   required: true
   label: "License Server"
+- variable: nfsshare 
+  default: ""
+  description: "NFS"
+  type: string
+  required: true
+  label: "NFS"
 - variable: aks.tenant
   default: ""
   description: "AKS tenant"
