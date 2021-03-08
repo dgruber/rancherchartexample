@@ -5,6 +5,7 @@ jobid: myfirstjob
 
 # Location of UberCloud's uc image
 ucimage: ""
+uccred: ""
 
 email: ""
 
