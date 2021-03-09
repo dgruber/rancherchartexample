@@ -30,3 +30,5 @@ spec:
         envFrom:
         - secretRef:
             name: aks-secret
+        - configMapRef:
+            name: jobconfig-env
