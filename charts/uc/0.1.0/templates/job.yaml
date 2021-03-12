@@ -22,7 +22,7 @@ spec:
             subPath: init.sh
           image: "{{ .Values.ucimage }}"
           imagePullPolicy: Always
-          command: ["uc", "--backend" ,"AKS", "create", "{{ .Values.jobid }}","--wait"]
+          command: ["/bin/sh", "-c", `uc --backend AKS create {{ .Values.jobid }} --wait || true"]
           envFrom:
           - configMapRef:
               name: jobconfig-env
