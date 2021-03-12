@@ -24,4 +24,3 @@ data:
   UC_USERCONTROLLER: "true"
   UC_USERCONTROLLERCONFIG: "machines:Standard_F32s_v2:gpus:none:gpucount:0:autoscaler:off"
   UC_DELETETIME: "240m"
-  

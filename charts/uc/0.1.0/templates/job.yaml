@@ -22,17 +22,14 @@ spec:
             subPath: init.sh
           image: "{{ .Values.ucimage }}"
           imagePullPolicy: Always
-          command: ["/bin/sh", "-c", `uc --backend AKS create {{ .Values.jobid }} --wait || true"]
+          command: ["/bin/sh", "-c"]
+          args: ["uc --backend AKS create {{ .Values.jobid }} --wait || true"]
           envFrom:
-          - configMapRef:
-              name: jobconfig-env
           - secretRef:
               name: aks-secret
           - secretRef:
               name: registry-secret
-          volumeMounts:
-          - name: init-script-volume
-            mountPath: /init.sh
-            subPath: init.sh
+          - configMapRef:
+              name: jobconfig-env
       restartPolicy: Never
   backoffLimit: 0
