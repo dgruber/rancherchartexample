@@ -14,7 +14,7 @@ data:
   UC_NFSSHARE: "{{ .Values.nfsshare }}"
   UC_WORKLOADMANAGER: "none"
   UC_PATH: "library_staging"
-  UC_IMAGE: "{{ .Values.applicationimage }}"
+  UC_IMAGE: "{{ .Values.applicationImage }}"
   UC_CLUSTERNAMEPREFIX: "dg"
   UC_MACHINE: "Standard_NC6s_v2"
   UC_GPUTYPE: "p100"
