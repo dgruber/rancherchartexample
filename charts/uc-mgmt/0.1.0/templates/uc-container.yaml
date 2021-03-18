@@ -17,6 +17,8 @@ spec:
       #securityContext:
       #  runAsUser: 60001
       #  runAsGroup: 60001
+      imagePullSecrets:
+        - name: ucregistry-secret
       volumes:
        - name: uc-pv-storage
          persistentVolumeClaim:
