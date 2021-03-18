@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uc-deployment
+  labels:
+    app: uc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uc
+  template:
+    metadata:
+      labels:
+        app: uc
+    spec:
+      #securityContext:
+      #  runAsUser: 60001
+      #  runAsGroup: 60001
+      volumes:
+       - name: uc-pv-storage
+         persistentVolumeClaim:
+           claimName: uc-pv-claim
+      containers:
+      - name: uc
+        image: "{{ .Values.uc.image }}"
+        command: ["/bin/bash"]
+        args: ["-c", "trap : TERM INT; sleep infinity & wait"]
+        volumeMounts:
+        - mountPath: "/uc"
+          name: uc-pv-storage

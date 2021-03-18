@@ -1,0 +1,11 @@
+# Default settings for magement container
+
+# Storage class for persistent storage for config
+# files. Like "standard" (GKE) or "default".
+storageclass: "standard"
+
+uc:
+  # location of the uc image
+  image: ""
+  # credentials for pulling the image
+  credentials: ""
