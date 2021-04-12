@@ -1,0 +1,35 @@
+# © 2021, TheUberCloud, Inc. All rights reserved
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ template "uc-ui.fullname" . }}
+  labels:
+    app: {{ template "uc-ui.name" . }}
+    chart: {{ template "uc-ui.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+rules:
+- apiGroups: ["", "apps", "batch"]
+  resources: ["pods", "pods/exec", "persistentvolumes", "persistentvolumeclaims", "secrets", "configmaps", "jobs"]
+  verbs: ["create", "delete", "deletecollection", "patch", "update", "watch", "get", list"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ template "uc-ui.fullname" . }}
+  labels:
+    app: {{ template "uc-ui.name" . }}
+    chart: {{ template "uc-ui.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+subjects:
+- kind: User
+  name: "system:serviceaccount:{{ .Release.Namespace }}:default"
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: {{ template "uc-ui.fullname" . }}
+  apiGroup: rbac.authorization.k8s.io
+# © 2021, TheUberCloud, Inc. All rights reserved

@@ -1,0 +1,43 @@
+# © 2021, TheUberCloud, Inc. All rights reserved
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubercloud-self-service-gui-deployment
+  labels:
+    app: {{ template "uc-ui.name" . }}
+    chart: {{ template "uc-ui.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ubercloud-self-service-gui-deployment
+  template:
+    metadata:
+      labels:
+        app: ubercloud-self-service-gui-deployment
+    spec:
+      imagePullSecrets:
+        - name: ucregistry-secret
+      containers:
+        - name: ubercloud-self-service-gui-deployment
+          image: {{ .Values.uc.guiimage }}
+          imagePullPolicy: "Always"
+          command: [ "/creator" ]
+          volumeMounts:
+          - name: sa-volume
+            mountPath: /serviceaccount
+          ports:
+            - containerPort: 8080
+          envFrom:
+          - configMapRef:
+              name: ubercloud-self-service-env-configmap
+      volumes:
+        - name: sa-volume
+          secret:
+            secretName: service-account-secret 
+        - name: env-configmap
+          configMap:
+            name: sa-configmap
+# © 2021, TheUberCloud, Inc. All rights reserved

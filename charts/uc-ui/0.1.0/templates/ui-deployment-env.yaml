@@ -1,0 +1,38 @@
+# © 2021, TheUberCloud, Inc. All rights reserved
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ubercloud-self-service-env-configmap
+  labels:
+    app: {{ template "uc-ui.name" . }}
+    chart: {{ template "uc-ui.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  PORT: "8080"
+  CR_WS_PORT: "8181"
+  CR_APPLICATIONIDS: "{{ .Values.application.name }}"
+  CR_DISPLAY_NAME_ansys: "Ansys on AKS"
+  CR_{{ .Values.application.name }}_BACKENDID: "aks1"
+  CR_IMAGE_{{ .Values.application.name }}: "{{ .Values.application.image }}"
+  CR_REGPATH_{{ .Values.application.name }}: "library_staging"
+  CR_NFSSERVER_{{ .Values.application.name }}: "{{ .Values.storage.nfsserver }}"
+  CR_NFSPATH_{{ .Values.application.name }}: "{{ .Values.storage.nfspath }}"
+  CR_AKSFILERSECRET_{{ .Values.application.name }}: "{{ .Values.aks.filersecret }}"
+  CR_AKSOUTGOINGIP: "{{ .Values.aks.outgoingip }}"
+  CR_AKSSUBSCRIPTION: "{{ .Values.aks.subscription }}"
+  CR_AKSBACKENDID: "aks1"
+  CR_AKSCLIENT: "{{ .Values.aks.client }}"
+  CR_AKSSECRET: "{{ .Values.aks.secret }}"
+  CR_AKSTENANT: "{{ .Values.aks.tenant }}"
+  CR_AKSREGION: "{{ .Values.aks.region }}"
+  CR_ENABLEBEEGFS_{{ .Values.application.name }}: "true"
+  CR_ENABLEIB_{{ .Values.application.name }}: "false"
+  CR_USER: "{{ .Values.registry.user }}"
+  CR_REGISTRY_KEY: "{{ .Values.registry.password }}"
+  CR_WELCOME_EMAIL_LIST: "{{ .Values.email }}"
+  CR_APPLICATION_PROFILES: "unset"
+  CR_MACHINE_LIST: "unset"
+  CR_NAMESPACE: "{{ .Release.Namespace }}"
+  CR_MASTER_CIDR_LIST: ""
+# © 2021, TheUberCloud, Inc. All rights reserved

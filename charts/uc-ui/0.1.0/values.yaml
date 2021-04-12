@@ -1,0 +1,47 @@
+# Self-service ui
+
+rbac:
+  create: true
+
+serviceAccount:
+  create: true
+  # The name of the ServiceAccount to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ubercloud-ui-serviceaccount
+
+# Storage class for persistent storage for config
+# files. Like "standard" (GKE) or "default".
+storageclass: "standard"
+
+application:
+  name: ""
+  description: ""
+  image: ""
+
+email: ""
+
+# UberCloud container registry
+registry:
+  user: ""
+  password: ""
+
+storage:
+  nfsserver: ""
+  nfspath: ""
+  beegfs: "false"
+
+infiniband: "false"
+
+aks:
+  subscription: ""
+  client: ""
+  secret: ""
+  tenant: ""
+  region: ""
+  filersecret: ""
+
+uc:
+  # location of the uc GUI image
+  guiimage: ""
+  # credentials for pulling the image (base64 encoded service account)
+  credentials: ""

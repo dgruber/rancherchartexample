@@ -1,0 +1,22 @@
+categories:
+- HPC
+- UberCloud
+questions:
+- variable: uc.image 
+  default: ""
+  description: "Image location of UberCloud's uc image"
+  type: string
+  required: true
+  label: "Image"
+- variable: uc.credentials
+  default: ""
+  description: "Credentials for pulling UberCloud's uc image"
+  type: string
+  required: true
+  label: "Credentials"
+- variable: storageclass
+  default: "default"
+  description: "Storageclass to use for providing persistent storage in container"
+  type: string
+  required: true
+  label: "Storageclass"

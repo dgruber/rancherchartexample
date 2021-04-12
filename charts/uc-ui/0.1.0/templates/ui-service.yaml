@@ -1,0 +1,20 @@
+# © 2021, TheUberCloud, Inc. All rights reserved
+apiVersion: v1
+kind: Service
+metadata:
+  name: ubercloud-self-service-gui-service
+  labels:
+    app: {{ template "uc-ui.name" . }}
+    chart: {{ template "uc-ui.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: ClusterIP
+  selector:
+    app: ubercloud-self-service-gui-deployment
+  ports:
+  - name: web
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+# © 2021, TheUberCloud, Inc. All rights reserved
