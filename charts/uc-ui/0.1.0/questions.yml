@@ -1,22 +1,113 @@
+rancher_max_version: 2.5.7
 categories:
 - HPC
 - UberCloud
 questions:
-- variable: uc.image 
+- variable: storageclass 
+  default: "standard"
+  description: "Storage class to use for helper services. _standard_ on Google, _default_ on Azure."
+  type: string
+  required: false
+  label: "Storage Class"
+- variable: application.name
   default: ""
-  description: "Image location of UberCloud's uc image"
+  description: "Application name (one word, no number prefix, must be unique)"
   type: string
   required: true
-  label: "Image"
-- variable: uc.credentials
-  default: ""
-  description: "Credentials for pulling UberCloud's uc image"
+  label: "Application Name"
+- variable: application.description
+  default: "default"
+  description: "Meaningful description of the purpose of the HPC cluster"
   type: string
   required: true
-  label: "Credentials"
-- variable: storageclass
+  label: "Application Description"
+- variable: application.image
   default: "default"
   description: "Storageclass to use for providing persistent storage in container"
   type: string
   required: true
-  label: "Storageclass"
+  label: "Application image"
+- variable: email
+  default: ""
+  description: "Email"
+  type: string
+  required: true
+  label: "Email"
+- variable: registry.user
+  default: ""
+  description: "Registry user"
+  type: string
+  required: true
+  label: "Registry User"
+- variable: registry.password
+  default: ""
+  description: "Registry password"
+  type: string
+  required: true
+  label: "Registry Password"
+- variable: storage.nfsserver
+  default: ""
+  description: "Storage NFS server"
+  type: string
+  required: true
+  label: "Storage NFS Server"
+- variable: storage.nfspath
+  default: ""
+  description: "Storage NFS path"
+  type: string
+  required: true
+  label: "Storage NFS Server"
+- variable: storage.beegfs
+  default: "false"
+  description: "Storage: If BeeGFS should be used, set to true"
+  type: string
+  required: false
+  label: "BeeGFS Storage"
+- variable: aks.subscription
+  default: ""
+  description: "AKS subscription"
+  type: string
+  required: true
+  label: "AKS Subscription"
+- variable: aks.client
+  default: ""
+  description: "AKS client"
+  type: string
+  required: true
+  label: "AKS Client"
+- variable: aks.secret
+  default: ""
+  description: "AKS secret"
+  type: string
+  required: true
+  label: "AKS Secret"
+- variable: aks.subscription
+  default: ""
+  description: "AKS subscription"
+  type: string
+  required: true
+  label: "AKS Subscription"
+- variable: aks.tenant
+  default: ""
+  description: "AKS tenant"
+  type: string
+  required: true
+  label: "AKS Tenant"
+- variable: aks.region
+  default: ""
+  description: "AKS region"
+  type: string
+  required: true
+  label: "AKS Region"
+- variable: uc.guiimage
+  default: ""
+  description: "uc gui"
+  type: string
+  required: true
+  label: "UC GUI"
+- variable: uc.credentials
+  default: ""
+  description: "uc credentials"
+  type: string
+  required: true
+  label: "UC Credentials"
