@@ -2,5 +2,5 @@ apiVersion: v2
 name: uc-self-service
 description: "Example chart of installing an UberCloud Self-Service UI using Rancher"
 type: application
-version: 0.1.0
-appVersion: "1.0.0"
+version: 0.1.1
+appVersion: "1.0.1"

@@ -9,105 +9,123 @@ questions:
   type: string
   required: false
   label: "Storage Class"
+  group: "Services"
 - variable: application.name
   default: ""
   description: "Application name (one word, no number prefix, must be unique)"
   type: string
   required: true
   label: "Application Name"
+  group: "Application"
 - variable: application.description
   default: "default"
   description: "Meaningful description of the purpose of the HPC cluster"
   type: string
   required: true
   label: "Application Description"
+  group: "Application"
 - variable: application.image
   default: "default"
   description: "Storageclass to use for providing persistent storage in container"
   type: string
   required: true
   label: "Application image"
+  group: "Application"
 - variable: email
   default: ""
   description: "Email"
   type: string
   required: true
   label: "Email"
+  group: "User"
 - variable: registry.user
   default: ""
   description: "Registry user"
   type: string
   required: true
   label: "Registry User"
+  group: "Registry"
 - variable: registry.password
   default: ""
   description: "Registry password"
   type: string
   required: true
   label: "Registry Password"
+  group: "Registry"
 - variable: storage.nfsserver
   default: ""
   description: "Storage NFS server"
   type: string
   required: true
   label: "Storage NFS Server"
+  group: "Storage"
 - variable: storage.nfspath
   default: ""
   description: "Storage NFS path"
   type: string
   required: true
   label: "Storage NFS Server"
+  group: "Storage"
 - variable: storage.beegfs
   default: "false"
   description: "Storage: If BeeGFS should be used, set to true"
   type: string
   required: false
   label: "BeeGFS Storage"
+  group: "Storage"
 - variable: aks.subscription
   default: ""
   description: "AKS subscription"
   type: string
   required: true
   label: "AKS Subscription"
+  group: "AKS"
 - variable: aks.client
   default: ""
   description: "AKS client"
   type: string
   required: true
   label: "AKS Client"
+  group: "AKS"
 - variable: aks.secret
   default: ""
   description: "AKS secret"
   type: string
   required: true
   label: "AKS Secret"
+  group: "AKS"
 - variable: aks.subscription
   default: ""
   description: "AKS subscription"
   type: string
   required: true
   label: "AKS Subscription"
+  group: "AKS"
 - variable: aks.tenant
   default: ""
   description: "AKS tenant"
   type: string
   required: true
   label: "AKS Tenant"
+  group: "AKS"
 - variable: aks.region
   default: ""
   description: "AKS region"
   type: string
   required: true
   label: "AKS Region"
+  group: "AKS"
 - variable: uc.guiimage
   default: ""
   description: "uc gui"
   type: string
   required: true
   label: "UC GUI"
+  group: "uc"
 - variable: uc.credentials
   default: ""
   description: "uc credentials"
   type: string
   required: true
   label: "UC Credentials"
+  group: "uc"
